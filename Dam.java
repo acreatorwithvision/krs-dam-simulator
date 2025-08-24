@@ -34,7 +34,42 @@ public class Dam{
      */
 
     public double getCurrentWaterLevelFt(){
+
         return this.currentWaterLevelFt;
+
     }
 
+
+    /**
+     * simulates water flowing into the dam, like from rainfall.
+     * @param inflowFt - the amount of water level increase in feet.
+     */
+
+    public void simulateDailyInflow(double inflowFt){
+        if(inflowFt<0){
+            System.out.println("INFO:- Inflow must be a positive value.");
+            return; //Do nothing if inflow is negative
+        }
+        double newLevel=this.currentWaterLevelFt+inflowFt;
+        //the new level cannot go above the max level.
+        //Math.max chooses the smaller of the two values.
+
+        this.currentWaterLevelFt=Math.min(newLevel,MAX_LEVEL_FT);
+    }
+
+
+    /**
+     * Simulates releasing water for irrigation or city supply.
+     * @param releaseFt - the amount of water level decrease in feet.
+     */
+    public void releaseWaterforIrrigation(double releaseFt){
+        if(releaseFt<0){
+            System.out.println("INFO: Release must be a positive value.");
+            return; //Do nothing is release is negative
+        }
+        double newLevel=this.currentWaterLevelFt-releaseFt;
+        //The new level cannot go below the minimum level(0)
+        //Math.max chooses the larger of the two values
+        this.currentWaterLevelFt=Math.max(newLevel,MIN_LEVEL_FT);
+    }
 }
