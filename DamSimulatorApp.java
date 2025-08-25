@@ -23,6 +23,16 @@ import java.util.Random;
              //print the daily report
              System.ou.println("Day %d: Inflow: %.2fft, Release: %.2fft | Final level: %.2f ft\n",day,dailyInflow,dailyRelease,krsDam.getCurrentWaterLevelFt());
 
+
+             //Conditional alerts for opening of gates
+             double currentLevel= krsDam.getCurrentWaterLevelFt();
+             if(currentLevel>CREST_GATE_ALERT_LEVEL_FT){
+                 System.out.println("==> ALERT: Crest gates opening is imminent");
+             } else if (currentLevel<LOW_LEVEL_WARNING_FT) {
+                 System.out.println("==> WARNING: Water level is critically low!");
+             }else{
+                 System.out.println("==> STATUS: Nominal");
+             }
          }
          System.out.println("------------------------------------------------");
          System.out.println("30-Day Simulation Complete");

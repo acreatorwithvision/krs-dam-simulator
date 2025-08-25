@@ -4,7 +4,7 @@ public class Dam{
 
     public static final double MAX_LEVEL_FT=124.80;
     public static final double CREST_GATE_ALERT_LEVEL_FT=123.0;
-    public static final double LOW_LEVEL_MARKING_FT=90.0;
+    public static final double LOW_LEVEL_WARNING_FT=90.0;
     public static final double MIN_LEVEL_FT=0.0;//Dam can't have negative so set to zero
 
     //this core state will change during the simulation
