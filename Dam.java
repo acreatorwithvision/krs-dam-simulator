@@ -1,3 +1,6 @@
+import java.util.Objects;
+
+
 public class Dam{
     //defining constants of the physical properties of dam
     //using final keyword to make sure it is unchanged anywhere in the program
@@ -10,6 +13,7 @@ public class Dam{
     //this core state will change during the simulation
     //its in private because to avoid incorrect changes from outside
     private double currentWaterLevelFt;
+    private Damstatus status; //Field for enum status
 
     /**
      * Contructor to create a new Dam instance
